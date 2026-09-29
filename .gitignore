@@ -75,3 +75,6 @@ Thumbs.db
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# Local desktop batch scripts
+Push_To_GitHub.bat
