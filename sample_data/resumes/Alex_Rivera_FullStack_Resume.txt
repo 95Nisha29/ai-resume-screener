@@ -1,0 +1,32 @@
+Alex Rivera
+Email: alex.rivera.dev@gmail.com | Phone: (415) 555-0192 | San Francisco, CA
+GitHub: github.com/alexrivera-dev | LinkedIn: linkedin.com/in/alexrivera
+
+PROFESSIONAL SUMMARY
+Senior Full-Stack Engineer with 5+ years of experience building high-performance web applications and distributed backend microservices. Proven track record in TypeScript, React, Next.js, Node.js, FastAPI, PostgreSQL, and AWS cloud deployments. Passionate about clean architecture, unit testing, and developer productivity.
+
+EXPERIENCE
+
+Senior Full-Stack Engineer | Nexus Tech Solutions | 2022 - Present (San Francisco, CA)
+- Architected and delivered customer-facing dashboard using React, TypeScript, Next.js, and Tailwind CSS, increasing user engagement by 42%.
+- Built RESTful APIs and GraphQL endpoints using Node.js, Express.js, and FastAPI (Python), handling over 8M daily requests.
+- Designed relational database schemas in PostgreSQL with Redis caching layer, optimizing query performance by 65%.
+- Implemented automated CI/CD deployment pipelines using GitHub Actions and Docker, reducing release cycle time from hours to minutes.
+- Conducted regular code reviews, mentored 4 junior engineers, and maintained 90%+ unit testing coverage using Jest and PyTest.
+
+Software Engineer | CloudSphere Inc. | 2019 - 2022 (Austin, TX)
+- Developed responsive web interfaces with React, Redux, and Bootstrap for SaaS enterprise clients.
+- Built backend microservices in Python (Django and Flask) and integrated AWS S3, EC2, and RDS.
+- Managed containerization workflows with Docker and assisted in migration to Kubernetes.
+- Collaborated in an Agile/Scrum environment with bi-weekly sprint planning and Jira management.
+
+EDUCATION
+Bachelor of Science in Computer Science | University of Texas at Austin (2015 - 2019)
+
+TECHNICAL SKILLS
+- Languages: JavaScript, TypeScript, Python, SQL, HTML5, CSS3, Bash
+- Frontend: React, Next.js, Redux, Tailwind CSS, Bootstrap, Webpack
+- Backend & APIs: Node.js, Express.js, FastAPI, RESTful API, GraphQL
+- Databases: PostgreSQL, MySQL, Redis, MongoDB
+- DevOps & Cloud: AWS, Docker, Kubernetes, CI/CD, GitHub Actions, Linux, Git
+- Methodologies: Agile/Scrum, System Design, Unit Testing, TDD

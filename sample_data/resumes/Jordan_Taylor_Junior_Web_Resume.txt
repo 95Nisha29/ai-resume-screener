@@ -1,0 +1,23 @@
+Jordan Taylor
+Email: jordan.taylor.web@gmail.com | Phone: (602) 555-0112 | Phoenix, AZ
+
+PROFESSIONAL SUMMARY
+Motivated Junior Web Development Intern with 1 year of hands-on experience building foundational websites, crafting responsive HTML/CSS designs, and utilizing basic JavaScript. Eager to grow software development skills within a fast-paced team.
+
+EXPERIENCE
+
+Web Development Intern | Desert Bloom Media | 2023 - 2024 (Phoenix, AZ)
+- Built landing pages using HTML, CSS, Bootstrap, and basic JavaScript.
+- Assisted in updating website content, fixing layout responsiveness, and debugging cross-browser issues.
+- Used Git for version control and participated in daily team meetings.
+
+Customer Support Associate | TechFirst Solutions | 2022 - 2023 (Phoenix, AZ)
+- Provided technical customer support for web hosting clients and recorded support tickets in Jira.
+
+EDUCATION
+Associate of Science in Web Technologies | Phoenix Community College (2021 - 2023)
+
+TECHNICAL SKILLS
+- Web: HTML/CSS, JavaScript, Bootstrap
+- Tools: Git, GitHub, VS Code
+- Soft Skills: Communication, Teamwork, Problem Solving

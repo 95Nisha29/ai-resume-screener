@@ -1,0 +1,44 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 654 >>
+stream
+BT
+/F1 14 Tf
+50 720 Td
+(Dr. Elena Rostova, Ph.D. - AI & NLP Specialist) Tj
+/F1 10 Tf
+0 -20 Td (Email: elena.rostova.ai@outlook.com | Phone: 617-555-0148) Tj
+0 -15 Td (Summary: Lead AI and NLP Research Engineer with 6+ years experience.) Tj
+0 -15 Td (Skills: Python, PyTorch, TensorFlow, Scikit-Learn, NLP, Transformers, LLMs, LangChain, Docker, AWS) Tj
+0 -15 Td (Experience: Lead Machine Learning Scientist at Cognition AI Labs) Tj
+0 -15 Td (Fine-tuned Transformer models BERT and GPT using PyTorch and Scikit-Learn) Tj
+0 -15 Td (Preprocessed massive text datasets using Pandas and NumPy) Tj
+0 -15 Td (Education: Ph.D. in Computer Science from MIT) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1016
+%%EOF

@@ -1,0 +1,29 @@
+Priya Sharma
+Email: priya.sharma.codes@gmail.com | Phone: (312) 555-0177 | Chicago, IL
+GitHub: github.com/priyasharma-dev
+
+PROFESSIONAL SUMMARY
+Mid-level Software Developer with 2.5 years of professional experience building web applications, REST APIs, and database-driven tools. Proficient in Python, Django, JavaScript, React, MySQL, and Docker. Enthusiastic about collaborative problem solving and agile product delivery.
+
+EXPERIENCE
+
+Software Developer | InnovateWeb Studio | 2023 - Present (Chicago, IL)
+- Developed and maintained responsive frontend web applications using React, JavaScript, HTML5, and CSS3.
+- Built backend RESTful APIs with Python and Django framework, implementing authentication and permissions.
+- Designed relational schemas and wrote optimized SQL queries for MySQL databases.
+- Integrated automated tests with PyTest and Jest to ensure code quality.
+- Containerized development environments using Docker and tracked version control via Git / GitHub.
+
+Junior Web Developer | Apex Digital Agency | 2022 - 2023 (Chicago, IL)
+- Created interactive client websites using HTML, CSS, JavaScript, and Bootstrap.
+- Collaborated in Agile Scrum sprints, attending daily standups and sprint planning sessions.
+- Resolved bug tickets and implemented feature requests under senior engineer supervision.
+
+EDUCATION
+Bachelor of Science in Information Technology | University of Illinois Chicago (2018 - 2022)
+
+TECHNICAL SKILLS
+- Languages: Python, JavaScript, SQL, HTML/CSS
+- Frameworks: React, Django, Flask, Bootstrap
+- Databases: MySQL, SQLite, PostgreSQL
+- Tools: Docker, Git/GitHub, Unit Testing, Agile/Scrum, RESTful API

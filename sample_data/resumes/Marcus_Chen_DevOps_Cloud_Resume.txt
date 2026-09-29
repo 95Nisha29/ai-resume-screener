@@ -1,0 +1,31 @@
+Marcus Chen
+Email: marcus.chen.infra@gmail.com | Phone: (206) 555-0183 | Seattle, WA
+LinkedIn: linkedin.com/in/marcus-chen-cloud
+
+PROFESSIONAL SUMMARY
+DevOps & Cloud Infrastructure Architect with 7+ years of experience designing secure, self-healing cloud ecosystems across AWS and GCP. Extensive mastery in Kubernetes, Docker, Terraform, CI/CD pipeline automation, and enterprise monitoring with Prometheus and Grafana.
+
+EXPERIENCE
+
+Lead DevOps Engineer | Apex Cloud Technologies | 2020 - Present (Seattle, WA)
+- Architected multi-region AWS infrastructure managing 500+ microservices using Terraform, AWS EKS (Kubernetes), and Route53.
+- Engineered unified continuous deployment pipelines utilizing GitHub Actions, GitLab CI, and Helm, eliminating manual release errors.
+- Designed automated monitoring and alerting infrastructure using Prometheus, Grafana, and Datadog, reducing MTTR by 55%.
+- Authored infrastructure automation scripts in Python and Bash for automated failover and backup strategies.
+- Enforced zero-trust cloud security policies, IAM role governance, and SOC2 compliance automation.
+
+Senior Systems & DevOps Engineer | StrataScale Solutions | 2017 - 2020 (Portland, OR)
+- Managed production Kubernetes clusters and containerized legacy monolithic applications using Docker and Linux.
+- Implemented Infrastructure as Code (IaC) templates using Terraform and Ansible across hybrid cloud environments.
+- Optimized AWS cloud spend through autoscaling policies and reserved instance allocation, saving $320k annually.
+
+EDUCATION
+Master of Science in Electrical Engineering & Computer Systems | University of Washington (2015 - 2017)
+Bachelor of Science in Information Technology | Oregon State University (2011 - 2015)
+
+TECHNICAL SKILLS
+- Cloud Platforms: AWS, Google Cloud (GCP), Microsoft Azure
+- DevOps & Containers: Docker, Kubernetes, Helm, Terraform, Ansible, CI/CD, GitHub Actions, Jenkins
+- Scripting & Code: Python, Bash/Shell, Go, SQL, Linux administration
+- Observability: Prometheus, Grafana, ELK Stack, Datadog, CloudWatch
+- Protocols & Architecture: System Design, Microservices, Nginx, RESTful API, Git/GitHub

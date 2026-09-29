@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentMatch AI - Resume Screening & Candidate Ranking</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Navbar -->
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
+          <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+            TalentMatch AI
+          </span>
+          <span class="text-xs ml-2 px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 font-medium border border-indigo-500/20">
+            NLP + TF-IDF Ranker
+          </span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 text-xs text-slate-400 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700/50">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-slate-300 font-medium">FastAPI Engine Ready</span>
+        </div>
+        <a href="#demo-section" class="text-xs text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1 font-medium">
+          <i data-lucide="help-circle" class="w-4 h-4"></i> How It Works
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- LEFT COLUMN: Input Configuration (5 Cols) -->
+      <section class="lg:col-span-5 space-y-6">
+
+        <!-- Job Description Card -->
+        <div class="glass-panel rounded-2xl p-5 relative overflow-hidden border border-slate-800">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <i data-lucide="briefcase" class="w-5 h-5 text-indigo-400"></i>
+              <h2 class="text-base font-semibold text-white">Target Job Description</h2>
+            </div>
+            <span class="text-xs text-slate-400" id="jd-exp-badge">Exp: Auto-detected</span>
+          </div>
+
+          <!-- Quick Presets -->
+          <div class="mb-3">
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Load Preset Role:</label>
+            <div class="flex flex-wrap gap-1.5" id="jd-preset-buttons">
+              <button type="button" data-preset="jd-fullstack" class="preset-btn px-2.5 py-1 text-xs rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 transition-all active:scale-95">
+                Full-Stack Eng
+              </button>
+              <button type="button" data-preset="jd-ml" class="preset-btn px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all active:scale-95">
+                ML / NLP Eng
+              </button>
+              <button type="button" data-preset="jd-devops" class="preset-btn px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all active:scale-95">
+                DevOps & Cloud
+              </button>
+            </div>
+          </div>
+
+          <!-- JD Text Area -->
+          <div class="relative">
+            <textarea 
+              id="job-description-input" 
+              rows="6" 
+              placeholder="Paste job description, requirements, and required skills here..."
+              class="w-full text-xs font-mono bg-slate-900/90 text-slate-200 border border-slate-700/80 rounded-xl p-3.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-600 resize-y"
+            ></textarea>
+          </div>
+
+          <!-- Extracted JD Skills Tag Bar -->
+          <div class="mt-3 pt-3 border-t border-slate-800/80">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="flex items-center gap-1 font-medium">
+                <i data-lucide="tags" class="w-3.5 h-3.5 text-indigo-400"></i>
+                Detected JD Requirements (<span id="jd-skills-count">0</span>):
+              </span>
+              <button id="btn-refresh-skills" class="text-xs text-indigo-400 hover:underline">Re-extract</button>
+            </div>
+            <div id="jd-skills-container" class="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto">
+              <span class="text-xs text-slate-500 italic">Select a preset or paste JD to see recognized skills.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume Upload Card -->
+        <div class="glass-panel rounded-2xl p-5 border border-slate-800">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <i data-lucide="file-up" class="w-5 h-5 text-indigo-400"></i>
+              <h2 class="text-base font-semibold text-white">Candidate Resumes</h2>
+            </div>
+            <button 
+              id="btn-load-demo-resumes"
+              type="button" 
+              class="text-xs px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 transition-all"
+            >
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+              Load 5 Demo Resumes
+            </button>
+          </div>
+
+          <!-- Drag and Drop Zone -->
+          <div 
+            id="drop-zone"
+            class="drop-zone rounded-xl p-6 text-center cursor-pointer relative"
+          >
+            <input 
+              type="file" 
+              id="resume-file-input" 
+              multiple 
+              accept=".pdf,.docx,.doc,.txt" 
+              class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            >
+            <div class="flex flex-col items-center justify-center space-y-2 pointer-events-none">
+              <div class="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+              </div>
+              <div class="text-xs text-slate-300">
+                <span class="font-semibold text-indigo-400">Click to upload</span> or drag and drop files
+              </div>
+              <p class="text-[11px] text-slate-500">Supports PDF, DOCX, and TXT resumes</p>
+            </div>
+          </div>
+
+          <!-- Uploaded Files List -->
+          <div id="file-list-container" class="mt-3 space-y-1.5 max-h-36 overflow-y-auto hidden">
+            <!-- Dynamically populated files -->
+          </div>
+        </div>
+
+        <!-- Scoring Weights Configuration (Collapsible) -->
+        <div class="glass-panel rounded-2xl p-4 border border-slate-800">
+          <button 
+            id="toggle-weights" 
+            class="w-full flex items-center justify-between text-left text-xs font-semibold text-slate-300 hover:text-white"
+          >
+            <span class="flex items-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4 text-indigo-400"></i>
+              Adjust Scoring Weights
+            </span>
+            <i data-lucide="chevron-down" id="weights-chevron" class="w-4 h-4 transition-transform"></i>
+          </button>
+          
+          <div id="weights-body" class="mt-4 space-y-3 pt-3 border-t border-slate-800/80 hidden">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">TF-IDF Semantic Similarity</span>
+                <span id="weight-sim-val" class="font-mono text-indigo-400">40%</span>
+              </div>
+              <input type="range" id="weight-sim" min="0" max="100" value="40" class="w-full accent-indigo-500 cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Skill Match Ratio</span>
+                <span id="weight-skill-val" class="font-mono text-indigo-400">45%</span>
+              </div>
+              <input type="range" id="weight-skill" min="0" max="100" value="45" class="w-full accent-indigo-500 cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Experience & Education Fit</span>
+                <span id="weight-exp-val" class="font-mono text-indigo-400">15%</span>
+              </div>
+              <input type="range" id="weight-exp" min="0" max="100" value="15" class="w-full accent-indigo-500 cursor-pointer">
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Action Button -->
+        <button 
+          id="btn-rank" 
+          type="button"
+          class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <i data-lucide="zap" class="w-5 h-5"></i>
+          <span>Analyze & Rank Candidates</span>
+        </button>
+
+      </section>
+
+      <!-- RIGHT COLUMN: Rankings & Analytics (7 Cols) -->
+      <section class="lg:col-span-7 space-y-6">
+
+        <!-- Summary Metrics Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="metrics-strip">
+          <div class="glass-panel rounded-xl p-3.5 border border-slate-800">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider block">Total Screened</span>
+            <span class="text-2xl font-bold text-white mt-1 block" id="stat-total">0</span>
+          </div>
+          <div class="glass-panel rounded-xl p-3.5 border border-slate-800">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider block">Top Score</span>
+            <span class="text-2xl font-bold text-emerald-400 mt-1 block" id="stat-top">--</span>
+          </div>
+          <div class="glass-panel rounded-xl p-3.5 border border-slate-800">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider block">Average Match</span>
+            <span class="text-2xl font-bold text-indigo-400 mt-1 block" id="stat-avg">--</span>
+          </div>
+          <div class="glass-panel rounded-xl p-3.5 border border-slate-800">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider block">Strong Matches</span>
+            <span class="text-2xl font-bold text-emerald-400 mt-1 block" id="stat-strong">0</span>
+          </div>
+        </div>
+
+        <!-- Top Candidate Spotlight -->
+        <div id="top-candidate-spotlight" class="glass-panel rounded-2xl p-5 border border-indigo-500/30 bg-gradient-to-r from-indigo-950/40 via-slate-900/60 to-purple-950/40 relative hidden">
+          <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider flex items-center gap-1 shadow-md">
+            <i data-lucide="trophy" class="w-3.5 h-3.5"></i> #1 Ranked Candidate
+          </div>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
+            <div>
+              <h3 class="text-xl font-bold text-white" id="spotlight-name">Candidate Name</h3>
+              <p class="text-xs text-slate-400 mt-0.5" id="spotlight-meta">Experience | Education</p>
+              <div class="flex flex-wrap gap-1.5 mt-2.5" id="spotlight-skills"></div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="text-right">
+                <span class="text-3xl font-extrabold text-emerald-400" id="spotlight-score">92%</span>
+                <span class="text-[10px] text-slate-400 uppercase block">Match Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Table / Cards Section -->
+        <div class="glass-panel rounded-2xl p-5 border border-slate-800">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2">
+              <i data-lucide="award" class="w-5 h-5 text-indigo-400"></i>
+              <h2 class="text-base font-semibold text-white">Ranked Candidate Leaderboard</h2>
+            </div>
+            <!-- Search & Export Controls -->
+            <div class="flex items-center gap-2">
+              <div class="relative">
+                <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2"></i>
+                <input 
+                  type="text" 
+                  id="candidate-search" 
+                  placeholder="Filter name or skill..." 
+                  class="pl-8 pr-3 py-1 text-xs rounded-lg bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500 placeholder:text-slate-600"
+                >
+              </div>
+              <button 
+                id="btn-export-csv" 
+                class="px-2.5 py-1 text-xs rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1 transition-all disabled:opacity-40"
+                disabled
+              >
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> CSV
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div id="results-empty" class="py-16 text-center text-slate-500">
+            <i data-lucide="users" class="w-12 h-12 mx-auto mb-3 opacity-30 text-indigo-400"></i>
+            <p class="text-sm font-medium text-slate-400">No candidates ranked yet</p>
+            <p class="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
+              Select a preset Job Description, upload resumes or click "Load 5 Demo Resumes", and hit "Analyze & Rank Candidates".
+            </p>
+          </div>
+
+          <!-- Loading State -->
+          <div id="results-loading" class="py-16 text-center text-indigo-400 hidden">
+            <div class="w-10 h-10 border-4 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin mx-auto mb-3"></div>
+            <p class="text-sm font-semibold text-slate-200">Analyzing Resumes & Computing TF-IDF Embeddings...</p>
+            <p class="text-xs text-slate-500 mt-1">Extracting skills, evaluating experience, and ranking candidates.</p>
+          </div>
+
+          <!-- Candidate Cards List -->
+          <div id="candidate-list" class="space-y-3 hidden">
+            <!-- Dynamic Candidate Cards -->
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Detailed Candidate Modal -->
+  <div id="candidate-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="glass-panel modal-fade w-full max-w-2xl max-h-[85vh] rounded-2xl border border-slate-700 overflow-hidden flex flex-col shadow-2xl">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div id="modal-rank-badge" class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-bold flex items-center justify-center text-sm">
+            #1
+          </div>
+          <div>
+            <h3 id="modal-name" class="text-lg font-bold text-white">Candidate Name</h3>
+            <p id="modal-contact" class="text-xs text-slate-400">email@example.com | (555) 000-0000</p>
+          </div>
+        </div>
+        <button id="modal-close" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 space-y-4 overflow-y-auto flex-1">
+        <!-- Score Overview -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-center">
+            <span class="text-[10px] uppercase text-slate-400 block">TF-IDF Similarity</span>
+            <span id="modal-sim-score" class="text-lg font-bold text-indigo-400">82%</span>
+          </div>
+          <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-center">
+            <span class="text-[10px] uppercase text-slate-400 block">Skill Match</span>
+            <span id="modal-skill-score" class="text-lg font-bold text-emerald-400">90%</span>
+          </div>
+          <div class="bg-slate-900/80 rounded-xl p-3 border border-slate-800 text-center">
+            <span class="text-[10px] uppercase text-slate-400 block">Overall Score</span>
+            <span id="modal-overall-score" class="text-lg font-bold text-white">88.5%</span>
+          </div>
+        </div>
+
+        <!-- Matched Skills -->
+        <div>
+          <h4 class="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> Matched Skills (<span id="modal-matched-count">0</span>)
+          </h4>
+          <div id="modal-matched-skills" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- Missing Skills -->
+        <div>
+          <h4 class="text-xs font-semibold text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i> Missing Required Skills (<span id="modal-missing-count">0</span>)
+          </h4>
+          <div id="modal-missing-skills" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- Resume Snippet -->
+        <div>
+          <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Extracted Resume Preview</h4>
+          <div id="modal-snippet" class="text-xs font-mono bg-slate-900 p-3 rounded-xl border border-slate-800 text-slate-300 max-h-40 overflow-y-auto whitespace-pre-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-900 text-center py-4 text-xs text-slate-600">
+    TalentMatch AI • Built with FastAPI, Scikit-Learn TF-IDF, and Modern NLP • Running locally
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

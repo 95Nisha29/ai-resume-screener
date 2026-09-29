@@ -1,0 +1,31 @@
+Dr. Elena Rostova, Ph.D.
+Email: elena.rostova.ai@outlook.com | Phone: (617) 555-0148 | Boston, MA
+Google Scholar: scholar.google.com/elena-rostova | GitHub: github.com/erostova-nlp
+
+PROFESSIONAL SUMMARY
+Lead AI & NLP Research Engineer with 6+ years of experience in Natural Language Processing, Deep Learning, and Large Language Models. Expert in fine-tuning Transformer models (BERT, GPT), developing Retrieval-Augmented Generation (RAG) pipelines with LangChain, and deploying production ML systems with PyTorch, FastAPI, and Docker.
+
+EXPERIENCE
+
+Lead Machine Learning Scientist | Cognition AI Labs | 2021 - Present (Boston, MA)
+- Led a team of 5 data scientists developing domain-specific Large Language Model (LLM) agents and RAG systems using LangChain and Hugging Face Transformers.
+- Trained and fine-tuned deep neural networks (PyTorch, TensorFlow) on multi-terabyte text datasets, boosting semantic parsing accuracy by 28%.
+- Built feature engineering and automated preprocessing pipelines using Scikit-Learn, Pandas, and NumPy.
+- Packaged ML inference microservices using FastAPI and Docker, orchestrating zero-downtime deployments on Kubernetes and AWS.
+- Authored 4 peer-reviewed research papers in top NLP conferences on transfer learning and transformer attention mechanisms.
+
+Senior NLP Engineer | DataVertex Systems | 2018 - 2021 (Cambridge, MA)
+- Developed production named entity recognition (NER) and sentiment analysis classification models using PyTorch, Scikit-Learn, and Spacy.
+- Engineered automated data preprocessing and exploratory data analysis (EDA) pipelines on distributed text corpora using Python and Spark.
+- Collaborated with engineering teams to deploy RESTful API endpoints and integrated Redis for embedding vector caching.
+
+EDUCATION
+Ph.D. in Computer Science (Artificial Intelligence & NLP) | Massachusetts Institute of Technology (MIT) (2014 - 2018)
+Master of Science in Data Science | Carnegie Mellon University (2012 - 2014)
+Bachelor of Science in Mathematics & Computer Science (2008 - 2012)
+
+TECHNICAL SKILLS
+- Core: Python, R, SQL, C++, Bash
+- AI & ML: Machine Learning, Deep Learning, Natural Language Processing (NLP), Large Language Models (LLMs), LangChain, Transformers, PyTorch, TensorFlow, Scikit-Learn, Hugging Face
+- Data: Pandas, NumPy, Data Analysis, Data Preprocessing, Feature Engineering, Big Data, Spark
+- Engineering: FastAPI, Docker, Kubernetes, AWS, Git, Linux, CI/CD, Unit Testing

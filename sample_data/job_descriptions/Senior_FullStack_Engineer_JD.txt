@@ -1,0 +1,22 @@
+Job Title: Senior Full-Stack Engineer
+Location: Remote / Hybrid
+Experience Required: 4+ years of professional software engineering experience
+
+About the Role:
+We are seeking an experienced Senior Full-Stack Engineer to design and build scalable, high-performance web applications. You will collaborate with cross-functional teams to architect intuitive frontend experiences and robust backend APIs.
+
+Key Responsibilities:
+- Build responsive, modern user interfaces using React, TypeScript, Next.js, and Tailwind CSS.
+- Architect high-throughput RESTful APIs and GraphQL services with Node.js and FastAPI / Python.
+- Model and optimize relational databases using PostgreSQL and Redis caching.
+- Deploy and orchestrate containerized microservices on AWS using Docker, Kubernetes, and CI/CD pipelines.
+- Write thorough automated unit tests with Jest and PyTest, participating in code reviews and mentoring junior engineers.
+
+Requirements & Skills:
+- 4+ years of software development experience with modern JavaScript / TypeScript and Python.
+- Strong proficiency in React, Next.js, and state management (Redux).
+- Proven expertise in backend development with Node.js, Express.js, or FastAPI.
+- Solid experience with PostgreSQL, SQL schema design, and Redis.
+- Hands-on experience with Docker, AWS cloud services (S3, EC2, ECS), and GitHub Actions CI/CD.
+- Excellent problem-solving, system design, and communication skills.
+- Bachelor's degree in Computer Science, Software Engineering, or equivalent experience.
