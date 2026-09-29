@@ -1,6 +1,12 @@
 # AI Resume Screening & Candidate Ranking System (TalentMatch AI)
 
-An end-to-end intelligent recruitment system that analyzes candidate resumes against target job descriptions using **Natural Language Processing (NLP)**, **TF-IDF Vectorization**, and **Cosine Similarity**, producing an interpretable candidate ranking leaderboard with skill gap analysis.
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20on%20Render-2ea44f?style=for-the-badge&logo=render&logoColor=white)](https://ai-resume-ranker-q4se.onrender.com)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/95Nisha29/ai-resume-screener)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+
+> 🚀 **Live Demo Available:** **[https://ai-resume-ranker-q4se.onrender.com](https://ai-resume-ranker-q4se.onrender.com)**  
+> Try the fully-featured system live in your browser — upload resumes or load sample candidates instantly!
 
 ---
 
