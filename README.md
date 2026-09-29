@@ -56,7 +56,7 @@
 ### 2. Activate Virtual Environment
 Open PowerShell inside the project directory:
 ```powershell
-cd "C:\Users\Nisha Jogdand\.gemini\antigravity\scratch\ai_resume_screener"
+cd ai-resume-screener
 .\.venv\Scripts\Activate.ps1
 ```
 
